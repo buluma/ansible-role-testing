@@ -1,0 +1,29 @@
+---
+
+- name: Get root user info
+  getent:
+    database: passwd
+    key: root
+- debug:
+    var: ansible_facts.getent_passwd
+
+- name: Get all groups
+  getent:
+    database: group
+    split: ':'
+- debug:
+    var: ansible_facts.getent_group
+
+- name: Get all hosts, split by tab
+  getent:
+    database: hosts
+- debug:
+    var: ansible_facts.getent_hosts
+
+- name: Get http service info, no error if missing
+  getent:
+    database: services
+    key: http
+    fail_key: False
+- debug:
+    var: ansible_facts.getent_services

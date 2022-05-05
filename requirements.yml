@@ -1,3 +1,5 @@
 ---
 roles:
 collections:
+  - name: community.rabbitmq
+  - name: community.docker

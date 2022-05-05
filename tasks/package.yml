@@ -1,0 +1,49 @@
+---
+- name: Install the latest version of Apache
+  yum:
+    name: httpd
+    state: latest  # noqa package-latest
+
+- name: Install a list of packages (suitable replacement for 2.11 loop deprecation warning)
+  yum:
+    name:
+      - nginx
+      - postgresql
+      - postgresql-server
+    state: present
+
+- name: Install a list of packages with a list variable
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - httpd
+      - httpd-tools
+
+- name: Remove the Apache package
+  yum:
+    name: httpd
+    state: absent
+
+- name: Upgrade all packages
+  yum:
+    name: '*'
+    state: latest  # noqa package-latest
+
+- name: Upgrade all packages, excluding kernel & foo related packages
+  yum:
+    name: '*'
+    state: latest  # noqa package-latest
+    exclude: kernel*,foo*
+
+- name: List ansible packages and register result to print with debug later
+  yum:
+    list: ansible
+  register: result
+
+- name: Download the nginx package but do not install it
+  yum:
+    name:
+      - nginx
+    state: latest  # noqa package-latest
+    download_only: true

@@ -5,8 +5,7 @@
   gather_facts: yes
 
   tasks:
-    # Test we can logon to 'webservers' and execute python with json lib.
-    # ansible webservers -m ping
-
-    - name: Example from an Ansible Playbook
-      ansible.builtin.ping:
+    - name: Initialize role without actually running it
+      include_role:
+        name: testing
+        tasks_from: init

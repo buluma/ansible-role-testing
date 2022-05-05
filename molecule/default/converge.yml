@@ -8,6 +8,6 @@
     - role: ansible-role-testing
       facts:
         - key: datacenter
-          value: Amsterdam
+          value: Nairobi
         - key: availability_zone
           value: west

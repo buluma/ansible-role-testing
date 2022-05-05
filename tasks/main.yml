@@ -3,3 +3,76 @@
 - include: ping.yml
   tags:
     - ping
+
+# Passed
+# - name: Asynchronous yum task
+#   ansible.builtin.yum:
+#     name: docker-io
+#     state: present
+#   async: 1000
+#   poll: 0
+#   register: yum_sleeper
+#
+# - name: Wait for asynchronous job to end
+#   ansible.builtin.async_status:
+#     jid: '{{ yum_sleeper.ansible_job_id }}'
+#   register: job_result
+#   until: job_result.finished
+#   retries: 100
+#   delay: 10
+
+- name: Add repository
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+
+- name: Add multiple repositories into the same file (1/2)
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    file: external_repos
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+    gpgcheck: no
+
+- name: Add multiple repositories into the same file (2/2)
+  yum_repository:
+    name: rpmforge
+    description: RPMforge YUM repo
+    file: external_repos
+    baseurl: http://apt.sw.be/redhat/el7/en/$basearch/rpmforge
+    mirrorlist: http://mirrorlist.repoforge.org/el7/mirrors-rpmforge
+    enabled: no
+# Passed
+
+# - include: package.yml
+#   tags:
+#     - package
+
+- name: Install pexpect python package
+  pip:
+    name: pexpect
+
+- name: Case insensitive password string match
+  ansible.builtin.expect:
+    command: passwd root
+    responses:
+      (?i)password: "MySekretPa$$word"
+  # you don't want to show passwords in your logs
+  no_log: false
+
+- name: Force all notified handlers to run at this point, not waiting for normal sync points
+  meta: flush_handlers
+
+- include: getent.yml
+  tags:
+    - getent
+
+- include: core.yml
+  tags:
+    - core
+
+- name: install qemu
+  ansible.builtin.package:
+    name: "{{ qemu_packages }}"
+    state: present

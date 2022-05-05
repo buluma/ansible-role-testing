@@ -11,11 +11,12 @@ lint: |
   set -e
   yamllint .
   ansible-lint
+  flake8
 driver:
   name: docker
 platforms:
-  - name: "testing-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
-    image: "${namespace:-buluma}/${image:-fedora}:${tag:-latest}"
+  - name: "testing-${image:-docker-centos7-ansible}-${tag:-latest}${TOX_ENVNAME}"
+    image: "${namespace:-buluma}/${image:-docker-centos7-ansible}:${tag:-latest}"
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -25,3 +26,19 @@ provisioner:
   name: ansible
 verifier:
   name: ansible
+  enabled: False
+  lint:
+    name: flake8
+scenario:
+  test_sequence:
+    - dependency
+    - lint
+    - cleanup
+    - destroy
+    - syntax
+    - create
+    - prepare
+    - converge
+    - verify
+    - cleanup
+    - destroy
