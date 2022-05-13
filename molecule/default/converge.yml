@@ -5,6 +5,9 @@
   gather_facts: yes
 
   roles:
+    # - role: buluma.systemd
+    # # - name: buluma.python_pip
+    # - role: buluma.sysctl
     - role: ansible-role-testing
       facts:
         - key: datacenter

@@ -3,5 +3,13 @@
   hosts: all
   become: yes
   gather_facts: no
+  vars:
+    python_pip_executable: pip3
+    python_pip_update: yes
+    default_unit_state: "stopped"
+    default_unit_type: "service"
+    default_unit_enabled: "yes"
+    default_systemd_backup_files: true
 
   roles:
+    - name: buluma.bootstrap

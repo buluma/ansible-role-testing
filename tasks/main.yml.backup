@@ -102,18 +102,12 @@
 #     name: "{{ buildtools_packages }}"
 #     state: present
 
-# - include: powertools.yml
-#   tags:
-#     - powertools
-#
-# - include_role:
-#     name: buluma.core_dependencies
-#
-# - import_role:
-#     name: buluma.buildtools
-
-# - import_role:
-#     name: buluma.systemd
-- include: forensics.yml
+- include: powertools.yml
   tags:
-    - forensics
+    - powertools
+
+- include_role:
+    name: buluma.core_dependencies
+
+- import_role:
+    name: buluma.buildtools

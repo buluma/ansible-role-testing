@@ -1,0 +1,29 @@
+---
+
+- name: test if sudo_wait_for_host is set correctly
+  ansible.builtin.assert:
+    that:
+      - sudo_wait_for_host is defined
+      - sudo_wait_for_host is boolean
+    quiet: yes
+
+- name: test if sudo_timeout is set correctly
+  ansible.builtin.assert:
+    that:
+      - sudo_timeout is defined
+      - sudo_timeout is number
+      - sudo_timeout >= 0
+    quiet: yes
+
+- name: test if qemu_packages is set correctly
+  ansible.builtin.assert:
+    that:
+      - qemu_packages is defined
+    quiet: yes
+
+- name: test if powertools_repo_path is set correctly
+  ansible.builtin.assert:
+    that:
+      - powertools_repo_path is defined
+      - powertools_repo_path is string
+    quiet: yes

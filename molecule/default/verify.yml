@@ -7,5 +7,37 @@
   tasks:
     - name: Initialize role without actually running it
       include_role:
-        name: testing
-        tasks_from: init
+        name: ansible-role-testing
+        tasks_from: main
+
+    # PowerTools
+    - name: install a powertools package
+      ansible.builtin.package:
+        name: libpcap-devel
+        state: present
+      notify:
+        - remove a powertools package
+
+  handlers:
+
+    - name: remove a powertools package
+      ansible.builtin.package:
+        name: libpcap-devel
+        state: absent
+
+    # buildtools
+    - name: run gcc
+      ansible.builtin.command:
+        cmd: gcc --version
+
+    - name: run make
+      ansible.builtin.command:
+        cmd: make --version
+
+    - name: run shasum
+      ansible.builtin.command:
+        cmd: shasum --version
+
+    - name: run bison
+      ansible.builtin.command:
+        cmd: bison --version

@@ -4,6 +4,7 @@
 #
 dependency:
   name: galaxy
+  enabled: false
   options:
     role-file: requirements.yml
     requirements-file: requirements.yml
@@ -26,7 +27,7 @@ provisioner:
   name: ansible
 verifier:
   name: ansible
-  enabled: False
+  enabled: false
   lint:
     name: flake8
 scenario:
@@ -36,8 +37,8 @@ scenario:
     - cleanup
     - destroy
     - syntax
-    - create
-    - prepare
+    # - create
+    # - prepare
     - converge
     - verify
     - cleanup
