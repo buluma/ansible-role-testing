@@ -1,48 +1,26 @@
 ---
-image: "buluma/github-action-molecule:4.0.7"
-
-services:
-  - docker:dind
+image: "buluma/github-action-molecule:5.0.4"
 
 variables:
-  DOCKER_HOST: "tcp://docker:2375"
   PY_COLORS: 1
 
 molecule:
   script:
-    - image=${image} tag=${tag} molecule test
-  retry: 1
-  parallel:
-    matrix:
-      - image: "fedora-systemd"
-        tag: "34"
-      - image: "fedora-systemd"
-        tag: "latest"
-
-testing:
-  script:
-    - image=${image} tag=${tag} molecule -v test
+    - if [ -f tox.ini ] ; then tox ; fi
+    - if [ ! -f tox.ini ] ; then molecule test ; fi
   rules:
-    - if: $CI_COMMIT_REF_NAME == "testing"
-  retry: 1
+    - if: $CI_COMMIT_REF_NAME == "master"
   parallel:
     matrix:
-      - image: "fedora-systemd"
-        tag: "34"
-      - image: "fedora-systemd"
+      - image: "fedora"
+        tag: "36"
+      - image: "fedora"
         tag: "latest"
+      - image: "fedora"
+        tag: "rawhide"
 
 galaxy:
   script:
-    - ansible-galaxy role info buluma.testing
-
-role_testing:
-  script:
-    - image=${image} tag=${tag} ansible-galaxy install buluma.testing
-  retry: 1
-  parallel:
-    matrix:
-      - image: "fedora-systemd"
-        tag: "34"
-      - image: "fedora-systemd"
-        tag: "latest"
+    - ansible-galaxy role import --api-key ${GALAXY_API_KEY} buluma ${CI_PROJECT_NAME}
+  rules:
+    - if: $CI_COMMIT_TAG != null

@@ -4,7 +4,6 @@
 #
 dependency:
   name: galaxy
-  enabled: false
   options:
     role-file: requirements.yml
     requirements-file: requirements.yml
@@ -12,12 +11,11 @@ lint: |
   set -e
   yamllint .
   ansible-lint
-  flake8
 driver:
   name: docker
 platforms:
-  - name: "testing-${image:-docker-centos7-ansible}-${tag:-latest}${TOX_ENVNAME}"
-    image: "${namespace:-buluma}/${image:-docker-centos7-ansible}:${tag:-latest}"
+  - name: "testing-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
+    image: "${namespace:-buluma}/${image:-fedora}:${tag:-latest}"
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -27,19 +25,3 @@ provisioner:
   name: ansible
 verifier:
   name: ansible
-  enabled: false
-  lint:
-    name: flake8
-scenario:
-  test_sequence:
-    - dependency
-    - lint
-    - cleanup
-    - destroy
-    - syntax
-    # - create
-    # - prepare
-    - converge
-    - verify
-    - cleanup
-    - destroy

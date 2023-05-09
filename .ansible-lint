@@ -9,7 +9,5 @@ exclude_paths:
   - ./molecule/default/collections.yml
   - ./.tox
   - ./.cache
-skip_list:
-  - fqcn-builtins  # Use FQCN for builtin actions.
-  - unnamed-task  # All tasks should be named.
-  - yaml  # Violations reported by yamllint
+  - ./.github
+  - ./requirements.yml
