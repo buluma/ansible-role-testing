@@ -1,6 +1,6 @@
 ---
 # tasks file for ansible-role-testing
-- name: import assert.yml
+- name: Import assert.yml
   ansible.builtin.import_tasks: assert.yml
   run_once: yes
   delegate_to: localhost

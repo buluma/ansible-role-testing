@@ -1,6 +1,6 @@
 ---
 
-- name: wait for port to be available
+- name: Wait for port to be available
   ansible.builtin.wait_for:
     port: "{{ ansible_port | default('22') }}"
     timeout: "{{ sudo_timeout }}"
@@ -10,19 +10,19 @@
     - ansible_connection not in [ "container", "docker", "community.docker.docker" ]
     - sudo_wait_for_host | bool
 
-- name: prepare system
+- name: Prepare system
   block:
-    - name: test connection | sudo
+    - name: Test connection | sudo
       ansible.builtin.wait_for_connection:
         timeout: "{{ sudo_timeout }}"
       register: sudo_connect
       changed_when: no
   rescue:
-    - name: gather sudo facts
+    - name: Gather sudo facts
       ansible.builtin.include_tasks:
         file: gather_facts.yml
 
-    - name: install sudo packages (raw)
+    - name: Install sudo packages (raw)
       ansible.builtin.raw: "{{ sudo_install.raw }}"
       register: sudo_install_packages
       changed_when:

@@ -1,8 +1,8 @@
 ---
 # handlers file for ansible-role-testing
-- name: gather facts
+- name: Gather facts
   ansible.builtin.setup:
 
-- name: yum update cache
+- name: Yum update cache
   ansible.builtin.yum:
     update_cache: yes
