@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Bump buluma/molecule-action from 4.0.7 to 5.0.4 [\#18](https://github.com/buluma/ansible-role-testing/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3.0.1 to 3.0.2 [\#8](https://github.com/buluma/ansible-role-testing/pull/8) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3.0.0 to 3.0.1 [\#7](https://github.com/buluma/ansible-role-testing/pull/7) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 2.4.0 to 3.0.0 [\#6](https://github.com/buluma/ansible-role-testing/pull/6) ([dependabot[bot]](https://github.com/apps/dependabot))
