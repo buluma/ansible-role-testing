@@ -6,7 +6,7 @@
 
   tasks:
     - name: Initialize role without actually running it
-      include_role:
+      ansible.builtin.include_role:
         name: ansible-role-testing
         tasks_from: main
 

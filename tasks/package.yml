@@ -1,11 +1,11 @@
 ---
 - name: Install the latest version of Apache
-  yum:
+  ansible.builtin.yum:
     name: httpd
     state: latest  # noqa package-latest
 
 - name: Install a list of packages (suitable replacement for 2.11 loop deprecation warning)
-  yum:
+  ansible.builtin.yum:
     name:
       - nginx
       - postgresql
@@ -13,7 +13,7 @@
     state: present
 
 - name: Install a list of packages with a list variable
-  yum:
+  ansible.builtin.yum:
     name: "{{ packages }}"
   vars:
     packages:
@@ -21,28 +21,28 @@
       - httpd-tools
 
 - name: Remove the Apache package
-  yum:
+  ansible.builtin.yum:
     name: httpd
     state: absent
 
 - name: Upgrade all packages
-  yum:
+  ansible.builtin.yum:
     name: '*'
     state: latest  # noqa package-latest
 
 - name: Upgrade all packages, excluding kernel & foo related packages
-  yum:
+  ansible.builtin.yum:
     name: '*'
     state: latest  # noqa package-latest
     exclude: kernel*,foo*
 
 - name: List ansible packages and register result to print with debug later
-  yum:
+  ansible.builtin.yum:
     list: ansible
   register: result
 
 - name: Download the nginx package but do not install it
-  yum:
+  ansible.builtin.yum:
     name:
       - nginx
     state: latest  # noqa package-latest
