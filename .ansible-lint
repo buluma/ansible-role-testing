@@ -15,3 +15,5 @@ exclude_paths:
 warn_list:  # or 'skip_list' to silence them completely
   - fqcn-builtins  # Use FQCN for builtin actions.
   - unnamed-task  # All tasks should be named.
+  - jinja[spacing]  # Rule that looks inside jinja2 templates.
+  - name[casing]  # Rule for checking task and play names.
