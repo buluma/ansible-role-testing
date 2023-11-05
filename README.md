@@ -2,9 +2,9 @@
 
 Ping Ping Testing
 
-|GitHub|GitLab|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![github](https://github.com/buluma/ansible-role-testing/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-testing/actions)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-testing/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-testing)|[![quality](https://img.shields.io/ansible/quality/58090)](https://galaxy.ansible.com/buluma/testing)|[![downloads](https://img.shields.io/ansible/role/d/58090)](https://galaxy.ansible.com/buluma/testing)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/releases/)|
+|GitHub|GitLab|Downloads|Version|Issues|Pull Requests|
+|------|------|-------|-------|------|-------------|
+|[![github](https://github.com/buluma/ansible-role-testing/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-testing/actions)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-testing/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-testing)|[![downloads](https://img.shields.io/ansible/role/d/4856)](https://galaxy.ansible.com/buluma/testing)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/pulls/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -135,6 +135,7 @@ The following roles are used to prepare a system. You can prepare your system in
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://buluma.github.io/) for further information.
 
 Here is an overview of related roles:
+
 ![dependencies](https://raw.githubusercontent.com/buluma/ansible-role-testing/png/requirements.png "Dependencies")
 
 ## [Compatibility](#compatibility)
@@ -153,6 +154,10 @@ The minimum version of Ansible required is 2.10, tests have been done to:
 
 If you find issues, please register them in [GitHub](https://github.com/buluma/ansible-role-testing/issues)
 
+## [Changelog](#changelog)
+
+[Role History](https://github.com/buluma/ansible-role-testing/blob/master/CHANGELOG.md)
+
 ## [License](#license)
 
 [Apache-2.0](https://github.com/buluma/ansible-role-testing/blob/master/LICENSE).
@@ -162,3 +167,7 @@ If you find issues, please register them in [GitHub](https://github.com/buluma/a
 [Michael Buluma](https://buluma.github.io/)
 
 Please consider [sponsoring me](https://github.com/sponsors/buluma).
+
+### [Special Thanks](#special-thanks)
+
+Template inspired by [Robert de Bock](https://github.com/robertdebock)

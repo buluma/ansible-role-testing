@@ -3,17 +3,17 @@
 # Ansible managed
 #
 exclude_paths:
-  - ./molecule/default/prepare.yml
-  - ./molecule/default/converge.yml
-  - ./molecule/default/verify.yml
-  - ./molecule/default/collections.yml
-  - ./.tox
-  - ./.cache
-  - ./.github
-  - ./requirements.yml
+  - molecule/default/prepare.yml
+  - molecule/default/converge.yml
+  - molecule/default/verify.yml
+  - molecule/default/collections.yml
+  - .tox
+  - .cache
+  - .github
+  - requirements.yml
 
-warn_list:  # or 'skip_list' to silence them completely
-  - fqcn-builtins  # Use FQCN for builtin actions.
-  - unnamed-task  # All tasks should be named.
-  - jinja[spacing]  # Rule that looks inside jinja2 templates.
-  - name[casing]  # Rule for checking task and play names.
+skip_list:
+  - yaml[truthy]
+
+enable_list:
+  - name[prefix]
