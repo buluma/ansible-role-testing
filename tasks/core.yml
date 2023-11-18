@@ -1,6 +1,6 @@
 ---
 
-- name: Install core packages
+- name: core | Install core packages
   ansible.builtin.package:
     name: "{{ core_dependencies }}"
     state: present
@@ -8,10 +8,10 @@
   notify:
     - Gather facts
 
-- name: Reset connetion
+- name: core | Reset connetion
   ansible.builtin.meta: reset_connection
 
-- name: Try to install pip packages
+- name: core | Try to install pip packages
   ansible.builtin.pip:
     name: "{{ core_dependencies_pip_packages }}"
     state: present
@@ -19,5 +19,5 @@
   notify:
     - Gather facts
 
-- name: Flush handlers
+- name: core | Flush handlers
   ansible.builtin.meta: flush_handlers

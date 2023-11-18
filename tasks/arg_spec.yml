@@ -1,6 +1,6 @@
 ---
 
-- name: Verify vars needed for this task file are present when included
+- name: arg_spec | Verify vars needed for this task file are present when included
   ansible.builtin.validate_argument_spec:
     argument_spec: '{{ required_data }}'
   vars:
