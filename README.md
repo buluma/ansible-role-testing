@@ -1,10 +1,10 @@
-# [Ansible role testing](#testing)
+# Ansible role [testing](https://galaxy.ansible.com/ui/standalone/roles/buluma/testing/documentation)
 
 Ping Ping Testing
 
-|GitHub|Version|Issues|Pull Requests|
-|------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-testing/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-testing/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/pulls/)|
+|GitHub|Version|Issues|Pull Requests|Downloads|
+|------|-------|------|-------------|---------|
+|[![github](https://github.com/buluma/ansible-role-testing/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-testing/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-testing.svg)](https://github.com/buluma/ansible-role-testing/pulls/)|[![Ansible Role](https://img.shields.io/ansible/role/d/buluma/testing)](https://galaxy.ansible.com/ui/standalone/roles/buluma/testing/documentation)|
 
 ## [Example Playbook](#example-playbook)
 
