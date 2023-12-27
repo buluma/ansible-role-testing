@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/buluma/ansible-role-testing/compare/1.0.1...HEAD)
 
+**Closed issues:**
+
+- Update buluma/todo-to-issue-action@v1.0.1 @buluma [\#24](https://github.com/buluma/ansible-role-testing/issues/24)
+
 **Merged pull requests:**
 
 - Bump buluma/molecule-action from 4.0.7 to 5.0.4 [\#18](https://github.com/buluma/ansible-role-testing/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
